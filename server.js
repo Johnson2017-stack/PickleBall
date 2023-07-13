@@ -26,7 +26,7 @@ MongoClient.connect(URI)
         server.use(bodyParser.json());
         server.use(bodyParser.urlencoded({ extended: false}));
 
-        server.get("/", (req, res) => {
+        server.get('/', (req, res) => {
             db.collection('players').find().toArray()
             .then((players => {
                 res.render('index', {playersData: players});
