@@ -9,6 +9,8 @@ const {MongoClient} = require('mongodb');
 
 const server = express();
 
+server.use(express.static('public'));
+
 const URI = "mongodb+srv://Johnson228:Scb4l228@cluster0.ynja48t.mongodb.net/?retryWrites=true&w=majority";
 const DATAB_NAME = 'pickleball_db';
 
@@ -26,12 +28,21 @@ MongoClient.connect(URI)
         server.use(bodyParser.json());
         server.use(bodyParser.urlencoded({ extended: false}));
 
+        
+
         server.get('/', (req, res) => {
             db.collection('players').find().toArray()
             .then((players => {
                 res.render('index', {playersData: players});
             }))
         })
+
+        // server.get('/player', (req,res) => {
+        //   db.collection('players').findOne()
+        //   .then((player => {
+        //     res.render('playersInfo', {playersData: _id})
+        //   }))
+        // })
 
         server.get('/api/player', (req,res) => {
             db.collection('players').find().toArray()

@@ -1,9 +1,21 @@
-<h1>Players Registered</h1>
+<html>
+  <head>
+    <link href= "/public/styles.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div>
+      <h1 id="title">Players Registered</h1>
+    </div>
 
-<% playersData.map(player => { %>
-    <p><%= player.firstName %></p>
-<% }) %>
+   <div id="players">
+    <% playersData.map(player => { %>
+      <p><a href="/player"><%= player.firstName %></a></p>  
+      <!-- <p><%= player.firstName %></p> -->
+  <% }) %>
+   </div>
 
 <hr/>
 
 <a href="./register">Register player</a>
+  </body>
+</html>
