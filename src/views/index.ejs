@@ -1,21 +1,24 @@
 <html>
   <head>
-    <link href= "/public/styles.css" rel="stylesheet" type="text/css" />
+    <link href= "/stylesheets/style.css" rel="stylesheet" />
   </head>
   <body>
     <div>
-      <h1 id="title">Players Registered</h1>
+      <h1>2023 Pickle Ball</h1>
+      <h2 id="title">Players Registered</h2>
     </div>
 
    <div id="players">
     <% playersData.map(player => { %>
-      <p><a href="/player"><%= player.firstName %></a></p>  
+      <li><a href="/player"><%= player.firstName %></a></li>  
       <!-- <p><%= player.firstName %></p> -->
   <% }) %>
    </div>
 
-<hr/>
+   <nav>
+    <a id='page-link' href="./register">Register player</a>
+   </nav>
 
-<a href="./register">Register player</a>
+
   </body>
 </html>

@@ -2,6 +2,7 @@ const express = require('express');
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
 const {MongoClient} = require('mongodb');
+const path = require('path');
 // require("dotenv").config();
 
 // const PORT = process.env.PORT;
@@ -27,6 +28,7 @@ MongoClient.connect(URI)
         
         server.use(bodyParser.json());
         server.use(bodyParser.urlencoded({ extended: false}));
+        server.use(express.static(path.join(__dirname,'public')));
 
         
 
