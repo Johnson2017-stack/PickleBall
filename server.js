@@ -3,16 +3,15 @@ const ejs = require('ejs');
 const bodyParser = require('body-parser');
 const {MongoClient} = require('mongodb');
 const path = require('path');
-// require("dotenv").config();
+require("dotenv").config();
 
-// const PORT = process.env.PORT;
-// const URI = process.env.URI;
+const PORT = process.env.PORT;
+const URI = process.env.URI;
 
 const server = express();
 
 server.use(express.static('public'));
 
-const URI = "mongodb+srv://Johnson228:Scb4l228@cluster0.ynja48t.mongodb.net/?retryWrites=true&w=majority";
 const DATAB_NAME = 'pickleball_db';
 
 
@@ -67,7 +66,7 @@ MongoClient.connect(URI)
  });
 
 
-const PORT = 3000;
+
 
 
 server.listen(PORT, () => {
